@@ -8,6 +8,11 @@
     grid-area: d;
 }
 
+.dialogs-items a{
+    color: black;
+    text-decoration: none;
+}
+
 .dialogs-items{
     padding: 10px;
 }
