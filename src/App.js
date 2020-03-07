@@ -9,7 +9,7 @@ import { Route, BrowserRouter, Redirect } from 'react-router-dom'
 const App = () => {
   return (
     <BrowserRouter>
-      <Redirect from='/' to='/dialogs' />
+      <Redirect from='/' to='/profile' />
       <div className='app-wrapper'>
         <Header />
         <Navbar />
