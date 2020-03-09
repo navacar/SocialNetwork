@@ -4,22 +4,40 @@ import { NavLink } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-const Dialogs = () => (
-    <div className='dialogs'>
-        <div className='dialogs-items'>
-            <DialogItem name='Alexandr' id='1'/>
-            <DialogItem name='Misha' id='2'/>
-            <DialogItem name='Sveta' id='3'/>
-            <DialogItem name='Valera' id='4'/>
-            <DialogItem name='Maria' id='5'/>
-        </div>
-        <div className='messages'>
-            <Message message='Hi'/>
-            <Message message='How are you?'/>
-            <Message message="I'm fine thank you"/>
-        </div>
-    </div>
+const Dialogs = () => {
+    let DialogData =[
+        {id: 1, name: 'Alexandr'},
+        {id: 2, name: 'Misha'},
+        {id: 3, name: 'Sveta'},
+        {id: 4, name: 'Valera'},
+        {id: 5, name: 'Maria'},
+        {id: 6, name: 'Andrew'}
+    ]
 
-)
+    let MessageData= [
+        {message: 'Hi'},
+        {message: 'How are you?'},
+        {message: "I'm fine thank you"}
+    ]
+
+    return (
+        <div className='dialogs'>
+            <div className='dialogs-items'>
+                <DialogItem name={DialogData[0].name} id={DialogData[0].id} />
+                <DialogItem name={DialogData[1].name} id={DialogData[1].id} />
+                <DialogItem name={DialogData[2].name} id={DialogData[2].id} />
+                <DialogItem name={DialogData[3].name} id={DialogData[3].id} />
+                <DialogItem name={DialogData[4].name} id={DialogData[4].id} />
+                <DialogItem name={DialogData[5].name} id={DialogData[5].id} />
+            </div>
+            <div className='messages'>
+                <Message message={MessageData[0].message} />
+                <Message message={MessageData[1].message} />
+                <Message message={MessageData[2].message} />
+            </div>
+        </div>
+
+    )
+}
 
 export default Dialogs;
