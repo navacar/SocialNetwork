@@ -4,14 +4,10 @@ import Post from './Post/Post';
 import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 
-const MyPosts = () => {
-    let PostData = [
-        {message: "Hi, how are you?", likeCount: 100},
-        {message: "It's my first post!", likeCount: 59}
-    ]
+const MyPosts = (props) => {
 
-    let PostsElements = PostData
-        .map(post => <Post message={post.message} likeCount={post.likeCount} />)
+    let PostsElements = 
+    props.Posts.map(post => <Post message={post.message} likeCount={post.likeCount} />)
 
     return (
         <div className="postsblock">

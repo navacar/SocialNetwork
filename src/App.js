@@ -6,7 +6,7 @@ import Profile from './components/Profile/Profile';
 import Dialogs from './components/ Dialogs/Dialogs';
 import { Route, BrowserRouter, Redirect } from 'react-router-dom'
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <Redirect from='/' to='/profile' />
@@ -14,8 +14,8 @@ const App = () => {
         <Header />
         <Navbar />
         <div className='app-wrapper-content'>
-          <Route path='/profile' component={Profile} />
-          <Route path='/dialogs' component={Dialogs} />
+          <Route path='/profile' render={() => <Profile Posts={props.Posts}/>} />
+          <Route path='/dialogs' component={() => <Dialogs MessageData={props.MessageData} DialogData={props.DialogData}/>} />
         </div>
       </div>
     </BrowserRouter>
