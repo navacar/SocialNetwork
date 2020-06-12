@@ -1,8 +1,8 @@
 let State = {
     ProfilePage: {
         Posts: [
-            {message: "Hi, how are you?", likeCount: 100},
-            {message: "It's my first post!", likeCount: 59}
+            {id: 1, message: "Hi, how are you?", likeCount: 100},
+            {id: 2, message: "It's my first post!", likeCount: 59}
         ]
     },
     DialogsPage: {
