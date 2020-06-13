@@ -22,4 +22,18 @@ let State = {
     }
 }
 
+export let addPost = (postMessage) => {
+
+    // let lastId = State.ProfilePage.Posts[State.ProfilePage.lastIndexOfPosts].i 
+    
+    
+    let newPost = {
+        id: 3,
+        message: postMessage,
+        likeCount: 0
+    }; 
+
+    State.ProfilePage.Posts.push(newPost)
+}
+
 export default State;

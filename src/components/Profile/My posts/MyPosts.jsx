@@ -1,19 +1,19 @@
 import React from 'react';
 import './MyPosts.css';
 import Post from './Post/Post';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
+// import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 
 const MyPosts = (props) => {
 
     let PostsElements = 
-    props.Posts.map(post => <Post message={post.message} likeCount={post.likeCount} />)
+        props.Posts.map(post => <Post message={post.message} likeCount={post.likeCount} />)
 
     let newPostElement = React.createRef();
 
     let addPost = () => {
         let text = newPostElement.current.value;
-        alert(text)
+        props.addPost(text)
     }
 
     return (
