@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-export let rerenderEntireTree = (State, addPost) => {
-ReactDOM.render(<App State={State} addPost={addPost}/>, document.getElementById('root'));
+export let rerenderEntireTree = (State, addPost, ChangeNewPostText) => {
+ReactDOM.render(<App State={State} addPost={addPost} ChangeNewPostText={ChangeNewPostText}/>, document.getElementById('root'));
 }
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
