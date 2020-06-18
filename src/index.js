@@ -9,8 +9,7 @@ import Store from './State/State';
 let rerenderEntireTree = () => {
     ReactDOM.render(<App 
         State={Store.getState()} 
-        addPost={Store.addPost.bind(Store)} 
-        ChangeNewPostText={Store.ChangeNewPostText.bind(Store)} 
+        dispatch={Store.dispatch.bind(Store)} 
         />, document.getElementById('root'));
 }
 

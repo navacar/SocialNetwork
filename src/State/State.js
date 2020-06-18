@@ -2,8 +2,8 @@ let Store = {
     _State: {
         ProfilePage: {
             Posts: [
-                {id: 1, message: "Hi, how are you?", likeCount: 100},
-                {id: 2, message: "It's my first post!", likeCount: 59}
+                { id: 1, message: "Hi, how are you?", likeCount: 100 },
+                { id: 2, message: "It's my first post!", likeCount: 59 }
             ],
             newPostText: '',
         },
@@ -19,9 +19,15 @@ let Store = {
             MessageData: [
                 { message: 'Hi' },
                 { message: 'How are you?' },
-                { message: "I'm fine thank you" } 
-            ] 
+                { message: "I'm fine thank you" }
+            ]
         }
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer
+    },
+    getState() {
+        return (this._State)
     },
     _callSubscriber() {
     },
@@ -35,18 +41,21 @@ let Store = {
             id: Store._State.ProfilePage.Posts[Store._State.ProfilePage.Posts.length - 1].id + 1,
             message: Store._State.ProfilePage.newPostText,
             likeCount: 0
-        }; 
-    
-        this._State.ProfilePage.Posts.unshift(newPost)
-        this._State.ProfilePage.newPostText = ''
-        this._callSubscriber()
+        };
+
+        if (newPost.message != ''){
+            this._State.ProfilePage.Posts.unshift(newPost)
+            this._State.ProfilePage.newPostText = ''
+            this._callSubscriber()
+        }
     },
-    subscribe(observer) {
-        this._callSubscriber = observer
-    },
-    getState() {
-        return (this._State)
+    dispatch(action) {
+        if (action.type === 'ADD-POST') 
+             this.addPost()
+        else if (action.type === 'CHANGE-NEW-POST-TEXT')
+            this.ChangeNewPostText(action.Text)
     }
+
 }
 
 export default Store;
