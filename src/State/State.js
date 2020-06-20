@@ -1,3 +1,7 @@
+const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT'
+const ADD_POST = 'ADD-POST'
+
+
 let Store = {
     _State: {
         ProfilePage: {
@@ -55,7 +59,17 @@ let Store = {
         else if (action.type === 'CHANGE-NEW-POST-TEXT')
             this.ChangeNewPostText(action.Text)
     }
-
 }
+
+export const changePostActionCreator = (text) => (
+    {   
+        type: CHANGE_NEW_POST_TEXT, 
+        Text: text
+    }
+)
+
+export const addPostActionCreator = () => (
+    {type: ADD_POST}
+)
 
 export default Store;
