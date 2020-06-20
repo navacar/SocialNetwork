@@ -1,23 +1,26 @@
 import React from 'react';
 import './Dialogs.css'
-import { NavLink } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import { createRef } from 'react';
+import { changeMessageActionCreator, sendMessageActionCreator } from '../../State/State';
 
 const Dialogs = (props) => {
+    let DialogsElements = 
+        props.DialogsPage.DialogData.map(dialog => (<DialogItem name={dialog.name} id={dialog.id} />));
 
-    let DialogsElements = props.State.DialogData.map(Dialog => (<DialogItem name={Dialog.name} id={Dialog.id} />));
+    let MessageElements = 
+        props.DialogsPage.MessageData.map(message => <Message message={message.message} />);
 
-    let MessageElements = props.State.MessageData.map(message => <Message message={message.message} />);
-
-    let MessageTextRef = React.createRef()
+    let newMessageElement = React.createRef()
 
     let sendMessage = () => {
-        let MessageText = MessageTextRef.current.value
-        alert(MessageText)
+        props.dispatch(sendMessageActionCreator())
     }
-
+    let onMessageChange = () => {
+        let text = newMessageElement.current.value;
+        newMessageElement.current.value = ''
+        props.dispatch(changeMessageActionCreator(text))
+    }
     return (
         <div className='dialogs'>
             <div className='dialogs-items'>
@@ -27,7 +30,7 @@ const Dialogs = (props) => {
                 {MessageElements}
                 <div className='SendArea'>
                     <div>
-                        <textarea ref={MessageTextRef}></textarea>
+                        <textarea onChange={onMessageChange} ref={newMessageElement} value={props.DialogsPage.newMessageText} />
                     </div>
                     <div>
                         <button onClick={sendMessage}>Send Message</button>

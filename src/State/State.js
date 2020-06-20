@@ -1,5 +1,7 @@
 const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT'
 const ADD_POST = 'ADD-POST'
+const SEND_MESSAGE = 'SEND-MESSAGE'
+const CHANGE_NEW_MESSAGE_TEXT = 'CHANGE-NEW-MESSAGE-TEXT'
 
 
 let Store = {
@@ -24,7 +26,8 @@ let Store = {
                 { message: 'Hi' },
                 { message: 'How are you?' },
                 { message: "I'm fine thank you" }
-            ]
+            ],
+            newMessageText: '',
         }
     },
     subscribe(observer) {
@@ -39,11 +42,26 @@ let Store = {
         this._State.ProfilePage.newPostText = Text
         this._callSubscriber()
     },
+    ChangeNewMessageText(Text) {
+        this._State.DialogsPage.newMessageText = Text
+        this._callSubscriber()
+    },
+    sendMessage(){
+        let newMessage = {
+            message: this._State.DialogsPage.newMessageText
+        }
+        if (newMessage.message != ''){
+            this._State.DialogsPage.MessageData.push(newMessage)
+            this._State.DialogsPage.newMessageText = ''
+            this._callSubscriber()
+        }
+
+    },
     addPost() {
 
         let newPost = {
-            id: Store._State.ProfilePage.Posts[Store._State.ProfilePage.Posts.length - 1].id + 1,
-            message: Store._State.ProfilePage.newPostText,
+            id: this._State.ProfilePage.Posts[this._State.ProfilePage.Posts.length - 1].id + 1,
+            message: this._State.ProfilePage.newPostText,
             likeCount: 0
         };
 
@@ -54,18 +72,32 @@ let Store = {
         }
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') 
-             this.addPost()
-        else if (action.type === 'CHANGE-NEW-POST-TEXT')
+        if (action.type === ADD_POST) 
+            this.addPost()
+        else if (action.type === CHANGE_NEW_POST_TEXT)
             this.ChangeNewPostText(action.Text)
+        else if (action.type === SEND_MESSAGE)
+            this.sendMessage()
+        else if (action.type === CHANGE_NEW_MESSAGE_TEXT)
+            this.ChangeNewMessageText(action.Text)
     }
 }
+export const changeMessageActionCreator = (text) => (
+    {   
+        type: CHANGE_NEW_MESSAGE_TEXT, 
+        Text: text
+    }
+)
 
 export const changePostActionCreator = (text) => (
     {   
         type: CHANGE_NEW_POST_TEXT, 
         Text: text
     }
+)
+
+export const sendMessageActionCreator = () => (
+    {type: SEND_MESSAGE}
 )
 
 export const addPostActionCreator = () => (

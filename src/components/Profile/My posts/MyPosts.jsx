@@ -5,7 +5,6 @@ import { addPostActionCreator, changePostActionCreator } from '../../../State/St
 
 
 const MyPosts = (props) => {
-
     let PostsElements = 
         props.Posts.map(post => <Post message={post.message} likeCount={post.likeCount} />)
 
