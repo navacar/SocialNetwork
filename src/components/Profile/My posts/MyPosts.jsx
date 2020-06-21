@@ -4,7 +4,7 @@ import Post from './Post/Post';
 import { addPostActionCreator, changePostActionCreator } from '../../../State/State';
 
 const MyPosts = (props) => {
-    let PostsElements = 
+    let PostsElements =
         props.Posts.map(post => <Post message={post.message} likeCount={post.likeCount} />)
 
     let newPostElement = React.createRef();
@@ -25,7 +25,7 @@ const MyPosts = (props) => {
             <div>
                 <div>
                     <div>
-                        <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
+                        <textarea onChange={onPostChange} placeholder="Enter post text" ref={newPostElement} value={props.newPostText} />
                     </div>
                     <div>
                         <button onClick={addPost}>Add post</button>

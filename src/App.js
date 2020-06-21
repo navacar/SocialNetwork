@@ -7,7 +7,7 @@ import Dialogs from './components/ Dialogs/Dialogs';
 import { Route, Redirect } from 'react-router-dom'
 
 
-const App = (props) => {
+const App = (props) =>{
 	return (
 		<div>
 			<Redirect from='/' to='/dialogs' />
@@ -28,6 +28,6 @@ const App = (props) => {
 			</div>
 		</div>
 	)
-}
+						}
 
 export default App;
