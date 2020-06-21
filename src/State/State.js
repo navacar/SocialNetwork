@@ -28,6 +28,13 @@ let Store = {
                 { message: "I'm fine thank you" }
             ],
             newMessageText: '',
+        },
+        NavBarPage: {
+            FriendsOnline: [
+                {name: "Artem"},
+                {name: "Sasha"},
+                {name: "Vova"}
+            ]
         }
     },
     subscribe(observer) {

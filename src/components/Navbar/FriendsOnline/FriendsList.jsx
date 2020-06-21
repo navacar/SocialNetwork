@@ -1,20 +1,13 @@
 import React from 'react';
 import './FriendsList.css'
+import Friend from './Friend/Friend';
 
-const FriendList = () => (
+const FriendList = (props) => {
+    let FriendListElement = 
+        props.FriendsOnline.map(friend => <Friend name={friend.name}/>)
+    return (
     <div className="FriendList">
-        <div className="List">
-            <img src='/icons/ObiWan.png' />
-            <div>Артём</div>
-        </div>
-        <div className="List">
-            <img src='/icons/ObiWan.png' />
-            <div>Саша</div>
-        </div>
-        <div className="List">
-            <img src='/icons/ObiWan.png' />
-            <div>Илья</div>
-        </div>
+        {FriendListElement}
     </div>
-)
+)}
 export default FriendList;

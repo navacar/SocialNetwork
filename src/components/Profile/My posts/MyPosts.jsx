@@ -3,7 +3,6 @@ import './MyPosts.css';
 import Post from './Post/Post';
 import { addPostActionCreator, changePostActionCreator } from '../../../State/State';
 
-
 const MyPosts = (props) => {
     let PostsElements = 
         props.Posts.map(post => <Post message={post.message} likeCount={post.likeCount} />)
