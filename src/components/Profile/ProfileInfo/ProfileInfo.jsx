@@ -4,7 +4,7 @@ import './ProfileInfo.css';
 const ProfileInfo = () => (
     <div>
 
-        <div>
+        <div className="profileHeader">
             <img src='https://rtvi.com/upload/iblock/97e/97e9c925b5076f6f80d42f5c03f534f5.jpg' />
         </div>
 

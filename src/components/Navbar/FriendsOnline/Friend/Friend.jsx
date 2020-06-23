@@ -1,9 +1,9 @@
 import React from 'react';
 import './Friend.css'
 
-const Friend = (props) => (
+const Friend = (props) =>(
     <div className="List">
-            <img src='/icons/ObiWan.png' />
+            <img src={props.avatar} />
             <div>{props.name}</div>
     </div>
 )

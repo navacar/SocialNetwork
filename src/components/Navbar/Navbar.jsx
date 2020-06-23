@@ -23,7 +23,7 @@ const Navbar = (props) => (
         <div className="friends">
             <a>Friends</a>
             <div>
-                <FriendList FriendsOnline={props.NavBarPage.FriendsOnline}/>
+                <FriendList FriendsOnline={props.sideBar.FriendsOnline}/>
             </div>
         </div>
         

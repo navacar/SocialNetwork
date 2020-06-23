@@ -1,7 +1,8 @@
 import React from 'react';
 import './MyPosts.css';
 import Post from './Post/Post';
-import { addPostActionCreator, changePostActionCreator } from '../../../State/State';
+import { changePostActionCreator, addPostActionCreator } from '../../../State/ProfileReducer';
+
 
 const MyPosts = (props) => {
     let PostsElements =

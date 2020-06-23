@@ -10,10 +10,10 @@ import { Route, Redirect } from 'react-router-dom'
 const App = (props) =>{
 	return (
 		<div>
-			<Redirect from='/' to='/dialogs' />
+			<Redirect from='/' to='/profile' />
 			<div className='app-wrapper'>
 				<Header />
-				<Navbar NavBarPage={props.State.NavBarPage}/>
+				<Navbar sideBar={props.State.sideBar}/>
 				<div className='app-wrapper-content'>
 					<Route path='/profile'
 						render={() => <Profile
