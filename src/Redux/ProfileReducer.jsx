@@ -1,8 +1,15 @@
 const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT'
 const ADD_POST = 'ADD-POST'
 
+let initialState = {
+    Posts: [
+        { id: 1, message: "Hi, how are you?", likeCount: 100 },
+        { id: 2, message: "It's my first post!", likeCount: 59 }
+    ],
+    newPostText: '',
+}
 
-const ProfileReducer = (State, action) => {
+const ProfileReducer = (State = initialState, action) => {
     if (action.type === ADD_POST) {
 
         let newPost = {
