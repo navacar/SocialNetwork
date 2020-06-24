@@ -3,8 +3,8 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/ Dialogs/Dialogs';
 import { Route, Redirect } from 'react-router-dom'
+import DialogsContainer from './components/ Dialogs/DialogsContainer';
 
 
 const App = (props) =>{
@@ -21,7 +21,7 @@ const App = (props) =>{
 							dispatch={props.dispatch} />} />
 
 					<Route path='/dialogs'
-						render={() => <Dialogs
+						render={() => <DialogsContainer
 							DialogsPage={props.State.DialogsPage}
 							dispatch={props.dispatch} />} />
 				</div>
